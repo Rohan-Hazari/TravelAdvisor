@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { CssBaseline, Grid } from "@material-ui/core";
-import * as dotenv from "dotenv";
+// import * as dotenv from "dotenv";
 import { getPlacesData } from "./api/index";
 import Header from "./components/Header/Header";
 import List from "./components/List/List";
