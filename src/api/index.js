@@ -17,19 +17,14 @@ export const getPlacesData = async (type, sw, ne) => {
           tr_latitude: ne.lat,
         },
         headers: {
-          // "X-RapidAPI-Key": JSON.stringify(
-          //   import.meta.env.VITE_REACT_APP_RAPIDAPI_TRAVERLAPI_KEY
-          // ),
-          "X-RapidAPI-Key": import.meta.env
-            .VITE_REACT_APP_RAPIDAPI_TRAVERLAPI_KEY,
-
+          "X-RapidAPI-Key": import.meta.env.VITE_REACT_APP_RAPIDAPI_TRAVERLAPI_KEY,
           "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
         },
       }
     );
     return data;
   } catch (error) {
-    console.log(import.meta.env.VITE_REACT_APP_RAPIDAPI_TRAVERLAPI_KEY);
+   
     console.log(error);
   }
 };
