@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getPlacesData = async (type, sw, ne) => {
-  console.log(type);
+  // console.log(type);
   try {
     const {
       data: { data },
@@ -29,7 +29,6 @@ export const getPlacesData = async (type, sw, ne) => {
     );
     return data;
   } catch (error) {
-    console.log(import.meta.env.VITE_REACT_APP_RAPIDAPI_TRAVERLAPI_KEY);
     console.log(error);
   }
 };

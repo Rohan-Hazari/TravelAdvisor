@@ -32,27 +32,28 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const filtered = places.filter((place) => Number(place.rating) > rating);
-
-    setFilteredPlaces(filtered);
-  }, [rating]);
-
-  useEffect(() => {
     if (bounds) {
       setIsLoading(true);
 
       // getWeatherData(coords.lat, coords.lng).then((data) =>
       //   setWeatherData(data)
       // );
-
-      getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
+      async function fetchData() {
+        let data = await getPlacesData(type, bounds.sw, bounds.ne);
         setPlaces(data.filter((place) => place.name && place.num_reviews > 0));
         setFilteredPlaces([]);
         setRating("");
         setIsLoading(false);
-      });
+      }
+      fetchData();
     }
   }, [bounds, type]);
+
+  useEffect(() => {
+    const filtered = places.filter((place) => Number(place.rating) > rating);
+
+    setFilteredPlaces(filtered);
+  }, [rating]);
 
   const onLoad = (autoC) => setAutocomplete(autoC);
 
