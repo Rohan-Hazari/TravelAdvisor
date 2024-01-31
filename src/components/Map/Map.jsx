@@ -22,7 +22,7 @@ const Map = ({
       <div className={classes.mapContainer}>
         <GoogleMapReact
           bootstrapURLKeys={{
-            key: JSON.stringify(import.meta.env),
+            key: import.meta.env.VITE_REACT_MAP_GOOGLE_API_KEY,
           }}
           defaultCenter={coords}
           center={coords}
